@@ -5,10 +5,10 @@
 a) The utility function is 
 $$U(c_1, c_2) = log(c_1) + 0.5log(c_2)$$
 
-As we have $c_2 = 10 - c_1$ we can substitute this and set the derivative to 0, i.e. we have $ \frac{1}{c_1} = \frac{0.5}{10-c_1}$, which yields $c_1 = 6.67$
+As we have $c_2 = 10 - c_1$ we can substitute this and set the derivative to 0, i.e. we have $\frac{1}{c_1} = \frac{0.5}{10-c_1}$, which yields $c_1 = 6.67$
 
 For the real interest rate we need
- $$ v(x) = log(x) => v'(x) = \frac{1}{x}$$
+$$v(x) = log(x) => v'(x) = \frac{1}{x}$$
 thus our interest rate will be $r = \frac{v'(c_1)}{0.5v'(c_2)} = \frac{1}{c_1} \cdot \frac{10-c_1}{0.5} -1 = 0$, which makes sense since we optimize our utility and we do not get more apples.
 
 b) Let $d \in [7]$, Roger would eat $2^{7-d}$ fruits every day. You have to namely optimize
