@@ -1,10 +1,10 @@
 ---
+title: "Series 1"
 queries:
     - series_1.sql
 ---
 
 # Series 1
-
 <DateInput
     title="Start After"
     name=date_range
@@ -45,9 +45,7 @@ GROUP BY name, source
 ```
 
 
-
 <DataTable data={stats} title="Macro Statistics" groupBy=name>
-    
     <Column id=name title=Country />
     <Column id=source title=Type/>
     <Column id=mean title=Mean fmt=pct2/>
