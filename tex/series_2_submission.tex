@@ -1,0 +1,217 @@
+% Advanced Financial Economics - Series 2
+% Author: Andy Tran
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{datetime}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% Colors
+\definecolor{darkblue}{RGB}{0,0,102}
+\definecolor{darkred}{RGB}{128,0,0}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+    citecolor=darkblue
+}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Andy Tran}
+\fancyhead[R]{Advanced Financial Economics}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Title format
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{darkblue}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{darkred}}
+  {\thesubsection}{1em}{}
+
+\begin{document}
+
+\begin{center}
+    \LARGE{\textbf{Advanced Financial Economics}}\\[0.5cm]
+    \Large{\textbf{Series 2}}\\[0.5cm]
+    \large{Andy Tran}\\[0.2cm]
+    \large{\today}
+\end{center}
+
+\section*{Exercise 1}
+We know that $\beta=0.5$ and $H=2$, $(e_1^1, e_2^1) = (1,0)$ and $(e_1^2, e_2^2) = (0,1)$.
+
+\subsection*{a) CARA Utilities}
+From the lecture we know that we have to solve
+$$ \log(1+r) + \log(\beta) = \frac{1}{H} \sum_{i=1}^{H} (e_2^h - e_1^h)$$
+
+Using the given values we get
+$$ \log(1+r) + \log(0.5) = \frac{1}{2} ((0 - 1) + (1-0)) = 0 \Rightarrow \log(1+r) = -\log(0.5) = \log(2)$$
+This yields $r=1$.
+
+\subsection*{b) CRRA Utilities}
+From the lecture we know that we have to solve
+$$ \beta(1+r) = \left(\frac{\sum_h e_2^h}{\sum_h e_1^h}\right)^\sigma$$
+
+Using the given values we get
+$$ 0.5(1+r) = \left(\frac{1}{1}\right)^2 = 1 \Rightarrow 1+r = \frac{1}{0.5} = 2 \Rightarrow r=1$$
+
+\subsection*{c) Quadratic Utilities}
+As both utility functions are the same, the marginal utility function will have to satisfy 
+\begin{align*}
+&\beta(1+r) = \frac{1 - \frac{1}{5}c_1}{1-\frac{1}{5}c_2}
+\end{align*}
+
+We can use that $\sum_h s^h = \sum_h (e_1^h - c_1^h) = 0$, or equivalently
+$\sum_h e_1^h = \sum_h c_1^h$ and note that $\sum_h c_2^h = \sum_h e_2^h + (1+r) \sum_h s^h \Rightarrow \sum_h c_2^h = \sum_h e_2^h$, due to market clearing.
+\begin{align*}
+&(1-\frac{1}{5}c_1) = \beta(1+r) (1-\frac{1}{5}c_2)
+\end{align*}
+
+Summing over each household gives us:
+\begin{align*}
+&\sum_h (1-\frac{1}{5}c_1^h) = \beta(1+r) \sum_h (1-\frac{1}{5}c_2^h) \\
+&\Rightarrow 2 \left(1-\frac{1}{5}\sum_h c_1^h\right) = \beta(1+r) \cdot 2 \left(1-\frac{1}{5}\sum_h c_2^h\right) \\
+&\Rightarrow 2 \left(1-\frac{1}{5}\sum_h e_1^h\right) = \beta(1+r) \cdot 2 \left(1-\frac{1}{5}\sum_h e_2^h\right)
+\end{align*}
+
+Plugging in the given values yields:
+\begin{align*}
+&2 \left(1-\frac{1}{5}\right) = 0.5(1+r) \cdot 2 \left(1-\frac{1}{5}\right) \\
+&\Rightarrow \frac{8}{5} = 0.5(1+r) \cdot \frac{8}{5} \\
+&\Rightarrow 1 = 0.5(1+r) \\
+&\Rightarrow 1+r = 2
+\end{align*}
+which gives us $r=1$.
+
+\subsection*{d) Some other utilities}
+We have the first marginal utility 
+\begin{align*}
+&\frac{\frac{1}{c_1 + 0.1}}{\frac{1}{c_2 + 0.1}} = \frac{c_2 + 0.1}{c_1 + 0.1}= 0.5(1+r) \\
+&c_{2}^R + 0.1 = 0.5(1+r)(c_1^R + 0.1)
+\end{align*}
+
+For the other agent we get the marginal utility:
+\begin{align*}
+&\frac{c_2^M}{c_1^M} = \beta (1+r)
+\end{align*}
+which is equivalent to:
+\begin{align*}
+&c_{2}^M = 0.5 (1+r)c_{1}^M
+\end{align*}
+
+Adding them both up we get
+\begin{align*}
+&c_{2}^R + 0.1 + c_{2}^M + = 0.5(1+r)(c_1^R + 0.1 + c_1^M )
+\end{align*}
+we can use that $c_{2}^R + c_{2}^M = 1, c_{1}^R + c_{1}^M = 1$,
+\begin{align*}
+&1 + 0.1 = 0.5(1+r)(1+ 0.1) \\
+&\Rightarrow 1.1 = 0.5(1+r)(1.1) \\
+&\Rightarrow r = 1
+\end{align*}
+
+\subsection*{e) Another utility}
+The first marginal utility gives us:
+\begin{align*}
+&c_2 = (1+r) \\
+&\Rightarrow s^R(1+r) + e_2 = (1+r) \\
+&\Rightarrow s^R(1+r) + 0 = (1+r)
+\end{align*}
+
+Assuming that $(1+r) \neq 0$, we retrieve $s^R = 1$
+
+The second marginal utility gives us:
+\begin{align*}
+&c_2 = 0.5(1+r) \\
+&\Rightarrow s^M(1+r) + e_2 = 0.5(1+r)
+\end{align*}
+and using that $s^M = -s^R = -1$ we get:
+\begin{align*}
+&-1(1+r) + 1 = 0.5(1+r) \\
+&\Rightarrow -(1+r) + 1 = 0.5(1+r) \\
+&\Rightarrow -1 - r + 1 = 0.5 + 0.5r \\
+&\Rightarrow -r = 0.5 + 0.5r \\
+&\Rightarrow -1.5r = 0.5 \\
+&\Rightarrow r = -\frac{1}{3}
+\end{align*}
+
+\subsection*{f) Last utility}
+The first margin utility gives us:
+\begin{align*}
+&\frac{c_2^R}{c_1^R} = 1+r \\
+&\Rightarrow \frac{s^R(1+r) + e_2^R}{e_1^R - s^R} = 1+r \\
+&\Rightarrow \frac{s^R(1+r) + 0}{1 - s^R} = 1+r \\
+&\Rightarrow \frac{s^R(1+r)}{1 - s^R} = 1+r \\
+&\Rightarrow s^R(1+r) = (1+r)(1 - s^R) \\
+&\Rightarrow s^R(1+r) = (1+r) - s^R(1+r) \\
+&\Rightarrow 2s^R(1+r) = (1+r) \\
+&\Rightarrow 2s^R = 1 \\
+&\Rightarrow s^R = 0.5
+\end{align*}
+
+The second marginal utility gives us:
+\begin{align*}
+&\frac{c_2^M}{c_1^M} = 0.5(1+r) \\
+&\Rightarrow \frac{s^M(1+r) + e_2^M}{e_1^M - s^M} = 0.5(1+r) \\
+&\Rightarrow \frac{-s^R(1+r) + e_2^M}{e_1^M + s^R} = 0.5(1+r) \\
+&\Rightarrow \frac{-0.5(1+r) + 1}{0 + 0.5} = 0.5(1+r) \\
+&\Rightarrow \frac{-0.5(1+r) + 1}{0.5} = 0.5(1+r) \\
+&\Rightarrow -1(1+r) + 2 = 0.5(1+r) \\
+&\Rightarrow -1 - r + 2 = 0.5 + 0.5r \\
+&\Rightarrow 1 - r = 0.5 + 0.5r \\
+&\Rightarrow 0.5 = 1.5r \\
+&\Rightarrow r = \frac{1}{3}
+\end{align*}
+
+\section*{Exercise 2: T-periods, H-agents}
+Since the discount factor is the same, from the lecture we know that the Euler Equation is:
+\begin{align*}
+&\frac{e^{-c_{t-1}}}{e^{-c_t}} = \beta(1+r_t), \; \forall t\in[1,T] \\
+&\Rightarrow \frac{e^{-c_{t-1}}}{e^{-c_t}} = \beta(1+r_t) \\
+&\Rightarrow e^{c_t - c_{t-1}} = \beta(1+r_t) \\
+&\Rightarrow c_{t} - c_{t-1} = \log(\beta(1+r_t)) \\
+&(e_t^h + s_{t-1}^h(1+r_t)) - (e_{t-1}^h + s_{t-2}^h(1+r_{t-1}) - s_{T-1}) = \log(\beta(1+r))
+\end{align*}
+
+If we sum up over all agents, and using the condition that the markets clear, we easily see that:
+\begin{align*}
+&\sum_h e_t^h + 0 - \sum_h e_{t-1}^h + 0 - 0 = H \log(\beta(1+r_t)) \\
+&\Rightarrow \sum_h (e_t^h - e_{t-1}^h) = H \log(\beta(1+r_t)) \\
+&\Rightarrow \sum_h 1 = H \log(\beta(1+r_t)) \\
+&\Rightarrow H = H \log(\beta(1+r_t)) \\
+&\Rightarrow 1 = \log(\beta(1+r_t)) \\
+&\Rightarrow 1 - \log(\beta) = \log(1+r_t) \\
+&\Rightarrow e^{1 - \log(\beta)} = 1+r_t \\
+&\Rightarrow \frac{e^1}{e^{\log(\beta)}} = 1+r_t \\
+&\Rightarrow \frac{e}{\beta} = 1+r_t \\
+&\Rightarrow r_t = \frac{e}{\beta} - 1
+\end{align*}
+
+Thus the interest rate is always the same for each timestep we are at.
+
+\end{document} 
